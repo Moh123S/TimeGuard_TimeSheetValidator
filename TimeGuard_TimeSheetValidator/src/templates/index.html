@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TimeGuard - Timesheet Validator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #report { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>TimeGuard - Timesheet Validator</h1>
+  <form id="uploadForm">
+    <input type="file" id="csvUpload" name="file" accept=".csv">
+    <button type="submit">Upload</button>
+  </form>
+  <div id="report"></div>
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const response = await fetch('/upload', { method: 'POST', body: formData });
+      const { report } = await response.json();
+      document.getElementById('report').textContent = JSON.stringify(report, null, 2);
+    });
+  </script>
+</body>
+</html>
