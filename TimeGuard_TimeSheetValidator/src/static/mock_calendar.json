@@ -1,0 +1,7 @@
+{
+  "events": [
+    {"start": "2025-08-01", "end": "2025-08-01", "title": "Meeting"},
+    {"start": "2025-08-02", "end": "2025-08-02", "title": "Work"},
+    {"start": "2025-08-03", "end": "2025-08-03", "title": "Meeting"}
+  ]
+}
